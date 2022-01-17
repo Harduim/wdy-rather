@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap';
+import { Tab, Tabs } from 'react-bootstrap';
 import Layout from '../components/Layout'
 import PoolList from '../components/PoolList';
 
