@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
-
+import UserAvatar from './Avatar';
 
 const drawerWidth = 240;
 
@@ -26,6 +26,7 @@ class Sidebar extends Component {
                 variant="permanent"
                 anchor="left"
             >
+                <UserAvatar />
                 <Divider />
                 <List>
                     {['Home', 'Add new', 'Leaderboard'].map((text, index) => (
