@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.sidebar {
+  min-width: 200px;
+}
+
 .main-nav-wrapper .active {
   background-color: #eee;
 }

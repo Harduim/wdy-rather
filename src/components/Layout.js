@@ -16,11 +16,11 @@ class Layout extends Component {
                         <div className='main-content-wrapper'>
                             <Container>
                                 <Row>
-                                    <Col sm={0} md={1}></Col>
-                                    <Col>{this.props.children}</Col>
+                                    <Col md={0} lg={1}></Col>
+                                    <Col md={12} lg={8}>{this.props.children}</Col>
                                 </Row>
                                 <Row>
-                                    <Col sm={0} md={1}></Col>
+                                    <Col md={0} lg={1}></Col>
                                 </Row>
                             </Container>
                         </div>
