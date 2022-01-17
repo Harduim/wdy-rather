@@ -1,23 +1,19 @@
 import './App.css';
-import * as React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Sidebar from './components/Sidebar'
+import React, { Component } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function App() {
-  return (
-    <Container fluid> {/* Page container */}
-      <Row> {/* Main Row */}
-        <Col xs={3} >
-          <Sidebar />
-        </Col> {/* Sidebar Col */}
-        <Col xs={9} >Main content
-        </Col> {/* Content Col */}
-      </Row> {/* Main Row */}
-      {/* Page container */}
-    </Container>
-  );
+class App extends Component {
+  render () {
+    return (
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route exact path='/home' element={<Home/>}/>
+      </Routes>
+    )
+  }
 }
 
 export default App;
