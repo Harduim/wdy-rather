@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar-main {
+  /* background-color: rosybrown; */
+  border-right: 1px solid lightgray;
+}
+
+.avatar {
+  margin: 2rem 1rem 1rem 1rem;
+}
+
+.main-nav-wrapper {
+  margin: 4rem 0rem 4rem 0rem;
+}

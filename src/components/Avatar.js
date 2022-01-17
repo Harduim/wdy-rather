@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
-import { Avatar, Container } from '@mui/material';
 import avatar_icon_blue from '../assets/avatar_icon_blue.png'
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
+import { Figure } from 'react-bootstrap';
 
 
-class UserAvatar extends Component {
+class Avatar extends Component {
     render() {
         return (
-            <Container sx={{textAlign: 'center'}}>
-                <Avatar alt="Remy Sharp" src={avatar_icon_blue} />
-                <div>Usename</div>
-                <div>Score: 99</div>
-            </Container>
+            <Figure className='avatar'>
+                <Figure.Image
+                    width={161}
+                    height={170}
+                    alt="User avatar image"
+                    src={avatar_icon_blue}
+                />
+                <Figure.Caption>
+                    Username | Score: 99
+                </Figure.Caption>
+            </Figure>
         );
     }
 }
 
-export default UserAvatar
+export default Avatar
