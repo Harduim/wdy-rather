@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { DebounceInput } from 'react-debounce-input';
 import Pool from './Pool'
 
 
@@ -11,7 +12,15 @@ class PoolList extends Component {
         return (
             <div className='pool-list'>
                 <div>
-                    Search bar
+                <div className="search-input-wrapper">
+                            <DebounceInput
+                                type="text"
+                                minLength={0}
+                                debounceTimeout={300}
+                                onChange={(event) => {}}
+                                placeholder="Search by content or user"
+                                value='Search' />
+                        </div>
                 </div>
                 <div>
                     {pools.map(p => <Pool p={p} />)}
