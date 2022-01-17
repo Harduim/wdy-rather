@@ -13,9 +13,6 @@ class Avatar extends Component {
                     alt="User avatar image"
                     src={avatar_icon_blue}
                 />
-                <Figure.Caption>
-                    Username | Score: 99
-                </Figure.Caption>
             </Figure>
         );
     }

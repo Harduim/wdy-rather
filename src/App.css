@@ -1,14 +1,15 @@
 .sidebar-main {
-  /* background-color: rosybrown; */
   border-right: 1px solid lightgray;
+  text-align: center;
 }
 
-.active {
+.main-nav-wrapper .active {
   background-color: #eee;
 }
 
 .avatar {
   margin: 2rem 1rem 1rem 1rem;
+  min-width: 4rem;
 }
 
 .main-nav-wrapper {
@@ -16,10 +17,49 @@
 }
 
 .main-content-wrapper {
-  margin: 4rem 0rem 4rem 0rem;
+  margin: 2rem 0rem 4rem 0rem;
 }
 
 h1 {
   text-align: center;
-  padding: 0.5rem 0.5rem 4rem 0.5rem;
+  padding: .5rem .5rem 2rem .5rem;
+}
+
+.pool-list {
+  margin: 1rem .5rem 1rem .5rem;
+}
+
+
+.pool-avatar {
+  border-right: 1px solid lightgray;
+  text-align: center;
+}
+
+.pool-avatar .avatar {
+  min-width: 3rem!important;
+  width: 3rem!important;
+}
+
+.pool-header b {
+  margin-left: .5rem;
+}
+
+.pool-header {
+  border-bottom: 1px solid lightgray;
+}
+
+.pool-body {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.pool-card {
+  margin: 2rem .5rem .5rem .5rem;
+  border-bottom: 1px solid lightgray;
+  /* box-shadow: 2px 2px 5px #ddd; */
+}
+
+.main-tabs-wrapper {
+  border: .2rem solid #ececec;
+  padding: 1rem;
+  border-radius: 8px 8px 0 0;
 }
