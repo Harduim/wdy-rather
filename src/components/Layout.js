@@ -10,7 +10,7 @@ class Layout extends Component {
             <Container fluid>
                 <Row>
                     <Col xs={3} ><Sidebar /></Col>
-                    <Col xs={9} >{this.props.children}</Col>
+                    <Col xs={9} ><div className='main-content-wrapper'>{this.props.children}</div></Col>
                 </Row>
             </Container>
         )
