@@ -1,3 +1,5 @@
+# Contributing
+
 ## Entities
 
 There are two types of objects stored in our database:
@@ -38,3 +40,10 @@ Voting options are attached to questions. They include:
 |-----------------|------------------|-------------------|
 | votes             | Array | A list that contains the id of each user who voted for that option|
 | text                | String | The text of the option |
+
+
+## Actions
+
+Add Question
+
+Answer Question
