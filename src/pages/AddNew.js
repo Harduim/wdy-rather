@@ -14,7 +14,7 @@ class AddNew extends Component {
         const { answer1Count, answer2Count } = this.state
         return (
             <Layout>
-                <h1>Create new</h1>
+                <h1>create a new poll</h1>
                 <br />
                 <Form>
                     <Form.Group className="mb-3" controlId="firstAnswer">
