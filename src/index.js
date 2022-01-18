@@ -3,5 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'))
+import reducer from './reducers'
+import middleware from './middleware'
+
+const store = createStore(
+    reducer,
+    middleware,
+)
+
+
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>,
+    document.getElementById('root')
+)
