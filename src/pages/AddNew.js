@@ -1,5 +1,4 @@
 import React, { Component, createRef } from 'react'
-import { Form, Button } from 'react-bootstrap';
 import Layout from '../components/Layout'
 
 const maxChars = 255
@@ -16,8 +15,8 @@ class AddNew extends Component {
             <Layout>
                 <h1>create a new poll</h1>
                 <br />
-                <Form>
-                    <Form.Group className="mb-3" controlId="firstAnswer">
+                <form>
+                    {/* <Form.Group className="mb-3" controlId="firstAnswer">
                         <Form.Label><b>Would You Rather...</b></Form.Label>
                         <Form.Control
                             as="textarea"
@@ -48,8 +47,8 @@ class AddNew extends Component {
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
-                    </Button>
-                </Form>
+                    </Button> */}
+                </form>
             </Layout>
         )
     }

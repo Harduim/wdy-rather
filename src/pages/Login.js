@@ -1,51 +1,55 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap';
-import { _getUsers } from '../_DATA'
-
+import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 
 
 
 class Login extends Component {
-    state = { users: [] }
-
-    componentDidMount() {
-        _getUsers().then(u => this.setState({ users: u }))
-    }
-
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.setUid(e.target.value)
+        // e.preventDefault()
+        const { dispatch } = this.props
+        const uid = e.target[0].value
+        dispatch(setAuthedUser(uid))
+        sessionStorage.setItem('uid', uid)
+        this.setState({ toHome: true })
     }
 
     render() {
-        const { users } = this.state
-        const { setUid } = this.props
+        const { users } = this.props
+
         return (
             <div className="login-wrapper">
-                <h1>Please Log In</h1>
-                <Form onSubmit={e => setUid(e.target[0].value)}>
-                    <Form.Group className="mb-3" controlId="firstAnswer">
-                        <Form.Select name="user" aria-label="Select User">
-                            <option key='0' value="">Select a user</option>
-                            {
-                                Object.keys(users).map(
-                                    (u, i) => {
-                                        return (
-                                            <option key={i} value={users[u].id}>{users[u].name}</option>
-                                        )
-                                    }
-                                )
-                            }
-                        </Form.Select>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+                <div>
+                    <h1>Please Log In</h1>
+                    <form onSubmit={e => this.handleSubmit(e)}>
+                        <div className="mb-3" controlId="firstAnswer">
+                            <select name="user" aria-label="Select User">
+                                <option key='0' value="">Select a user</option>
+                                {
+                                    Object.keys(users).map(
+                                        (u, i) => {
+                                            return (
+                                                <option key={i} value={users[u].id}>{users[u].name}</option>
+                                            )
+                                        }
+                                    )
+                                }
+                            </select>
+                        </div>
+                        <button variant="primary" type="submit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
             </div>
         )
     }
 }
 
 
-export default Login;
+function mapStateToProps({ users, authedUser }) {
+    return { users, loading: users.length === 0, authedUser }
+}
+
+
+export default connect(mapStateToProps)(Login)
