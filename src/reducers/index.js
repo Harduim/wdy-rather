@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { loadingBarReducer } from 'react-redux-loading'
+import { loadingBarReducer } from 'react-redux-loading-bar'
 import pools from "./pools"
 import users from "./users"
 import authedUser from "./authedUser"

@@ -22,7 +22,7 @@ class PoolList extends Component {
                     </div>
                 </div>
                 <div>
-                    {pools.map(p => <Pool p={p} />)}
+                    {Object.keys(pools).map(p => <Pool p={pools[p]} key={pools[p].id}/>)}
                 </div>
             </div>
         )
@@ -30,11 +30,4 @@ class PoolList extends Component {
 }
 
 
-function mapStateToProps(state, ownProps) {
-
-    return {
-        pools: state.pools
-    }
-}
-
-export default connect(mapStateToProps)(PoolList)
+export default connect(state => { return { pools: state.pools } })(PoolList)

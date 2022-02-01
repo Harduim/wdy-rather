@@ -12,9 +12,9 @@ class SiteNav extends Component {
         return (
             <div className='main-nav-wrapper'>
                 <div className="flex-column">
-                    <NavLink className={'nav-pills nav-link'} to="/home" activeClassName="active">Home</NavLink>
-                    <NavLink className={'nav-pills nav-link'} to="/add" activeClassName="active">New Question</NavLink>
-                    <NavLink className={'nav-pills nav-link'} to="/leaderboard" activeClassName="active">Leaderboard</NavLink>
+                    <NavLink className={'nav-pills nav-link'} to="/home" >Home</NavLink>
+                    <NavLink className={'nav-pills nav-link'} to="/add" >New Question</NavLink>
+                    <NavLink className={'nav-pills nav-link'} to="/leaderboard" >Leaderboard</NavLink>
                     <button className={'nav-pills nav-link'} onPointerDown={e=>dispatch(unsetAuthedUser())}>Sign Off</button>
                 </div>
             </div>

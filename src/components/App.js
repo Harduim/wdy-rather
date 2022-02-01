@@ -1,12 +1,13 @@
 import '../App.css';
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
 import AddNew from '../pages/AddNew';
 import Login from '../pages/Login';
+import Leaderboard from '../pages/Leaderboards'
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
-import LoadingBar from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading-bar'
 
 
 class App extends Component {
@@ -31,11 +32,12 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <Fragment>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/add' component={AddNew} />
-        </Fragment>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/add' element={<AddNew />} />
+          <Route exact path='/leaderboard' element={<Leaderboard />} />
+        </Routes>
       </BrowserRouter>
     )
   }

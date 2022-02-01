@@ -1,15 +1,14 @@
 import { _getQuestions, _getUsers } from '../_DATA'
-import { showLoading, hideLoading } from 'react-redux-loading'
-import { setAuthedUser } from '../actions/authedUser'
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 const AUTHEDUSER = sessionStorage.getItem('uid')
 
-function receiveData(questions, users) {
+function receiveData(pools, users) {
     return {
         type: RECEIVE_DATA,
-        questions: questions,
+        pools: pools,
         users: users,
         authedUser: AUTHEDUSER
     }
@@ -22,9 +21,9 @@ export function handleInitialData() {
         return Promise.all([
             _getQuestions(),
             _getUsers()
-        ]).then(([questions, users]) => {
+        ]).then(([pools, users]) => {
             dispatch(hideLoading())
-            dispatch(receiveData(questions, users))
+            dispatch(receiveData(pools, users))
         })
     }
 }

@@ -6,20 +6,18 @@ import Sidebar from './Sidebar'
 class Layout extends Component {
     render() {
         return (
-            <div>
-                <div>
-                    <div xs={3} >
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-xs-0 col-lg-3'>
                         <Sidebar />
                     </div>
-                    <div xs={9} >
+                    <div className='col-xs-12 col-lg-9'>
                         <div className='main-content-wrapper'>
-                            <div>
-                                <div>
-                                    <div md={0} lg={1}></div>
-                                    <div md={12} lg={8}>{this.props.children}</div>
-                                </div>
-                                <div>
-                                    <div md={0} lg={1}></div>
+                            <div className='container-fluid'>
+                                <div className='row'>
+                                    <div className='col-1'></div>
+                                    <div className='col-8'>{this.props.children}</div>
+                                    <div className='col-1'></div>
                                 </div>
                             </div>
                         </div>

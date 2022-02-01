@@ -8,7 +8,7 @@ export default function pools(state = [], action) {
         case ANSWER_POOL:
             return state
         case RECEIVE_DATA:
-            return state.concat([...action.questions])
+            return action.pools
         default:
             return state
     }

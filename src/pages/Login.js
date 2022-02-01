@@ -6,7 +6,6 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
     handleSubmit(e) {
-        // e.preventDefault()
         const { dispatch } = this.props
         const uid = e.target[0].value
         dispatch(setAuthedUser(uid))
@@ -22,7 +21,7 @@ class Login extends Component {
                 <div>
                     <h1>Please Log In</h1>
                     <form onSubmit={e => this.handleSubmit(e)}>
-                        <div className="mb-3" controlId="firstAnswer">
+                        <div className="mb-3">
                             <select name="user" aria-label="Select User">
                                 <option key='0' value="">Select a user</option>
                                 {
