@@ -9,7 +9,6 @@ class Login extends Component {
         const { dispatch } = this.props
         const uid = e.target[0].value
         dispatch(setAuthedUser(uid))
-        sessionStorage.setItem('uid', uid)
         this.setState({ toHome: true })
     }
 

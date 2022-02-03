@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import PoolList from '../components/PoolList';
-
+import { Tab, Tabs } from 'react-bootstrap';
 
 class Home extends Component {
     render() {
@@ -9,14 +9,14 @@ class Home extends Component {
             <Layout>
                 <h1>Would You Rather...</h1>
                 <div className='main-tabs-wrapper'>
-                    <div id="main-tabs">
-                        <div>
+                    <Tabs defaultActiveKey="unanswered" id="main-tabs" className="mb-3 test">
+                        <Tab eventKey="unanswered" title="Unanswered">
                             <PoolList />
-                        </div>
-                        <div>
+                        </Tab>
+                        <Tab eventKey="answered" title="Answered">
                             <PoolList />
-                        </div>
-                    </div>
+                        </Tab>
+                    </Tabs>
                 </div>
             </Layout>
         )
