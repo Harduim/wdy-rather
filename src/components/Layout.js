@@ -9,10 +9,10 @@ class Layout extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col xs={3} >
+                    <Col xs={3} style={{maxWidth:200}}>
                         <Sidebar />
                     </Col>
-                    <Col xs={9} >
+                    <Col xs={9} style={{minWidth:500}}>
                         <div className='main-content-wrapper'>
                             <Container>
                                 <Row>

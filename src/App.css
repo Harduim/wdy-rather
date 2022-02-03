@@ -5,6 +5,7 @@
 
 .sidebar {
   min-width: 200px;
+  max-width: 300px;
 }
 
 .main-nav-wrapper .active {
@@ -12,8 +13,17 @@
 }
 
 .avatar {
-  margin: 2rem 1rem 1rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  /* margin: 2rem 1rem 1rem 1rem; */
   min-width: 4rem;
+  display: block;
+  max-width: 20rem;
+  max-height: 20rem;
+  width: 90%;
+  height: auto;
 }
 
 .main-nav-wrapper {
@@ -40,8 +50,8 @@ h1 {
 }
 
 .pool-avatar .avatar {
-  min-width: 3rem!important;
-  width: 3rem!important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .pool-header b {
