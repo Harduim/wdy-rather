@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav } from 'react-bootstrap';
+import { Nav, Button } from 'react-bootstrap';
 import { NavLink } from "react-router-dom"
 import { unsetAuthedUser } from '../actions/authedUser'
 import { connect } from 'react-redux'
@@ -16,7 +16,7 @@ class SiteNav extends Component {
                     <NavLink className={'nav-pills nav-link'} to="/home" >Home</NavLink>
                     <NavLink className={'nav-pills nav-link'} to="/add" >New Question</NavLink>
                     <NavLink className={'nav-pills nav-link'} to="/leaderboard" >Leaderboard</NavLink>
-                    <button className={'nav-pills nav-link'} onPointerDown={e=>dispatch(unsetAuthedUser())}>Sign Off</button>
+                    <Button className={'nav-pills'} onPointerDown={e=>dispatch(unsetAuthedUser())}>Sign Off</Button>
                 </Nav>
             </div>
         )
