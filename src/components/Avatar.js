@@ -14,13 +14,17 @@ const avatars = {
 class Avatar extends Component {
     render() {
         const { authedUser, users } = this.props
+        const currentUser = users[authedUser]
 
         return (
-            <img
-                className='avatar'
-                alt="User avatar image"
-                src={avatars[users[authedUser].avatarURL]}
-            />
+            <div>
+                <img
+                    className='avatar'
+                    alt="User avatar image"
+                    src={avatars[currentUser.avatarURL]}
+                    />
+                    {currentUser.name}
+            </div>
         );
     }
 }
