@@ -8,7 +8,7 @@ class PoolList extends Component {
         return (
             <div className='pool-list'>
                 <div>
-                    {poolIds.map(p => <Pool p={pools[p]} key={pools[p].id} />)}
+                    {poolIds.sort((a, b) => pools[a].timestamp - pools[b].timestamp).map(p => <Pool p={pools[p]} key={pools[p].id} />)}
                 </div>
             </div>
         )
