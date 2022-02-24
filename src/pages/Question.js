@@ -13,12 +13,13 @@ const charLimitWarn = 150
 
 class QuestionPage extends Component {
 
-    state = { optionSelected: null }
+    state = { optionSelected: null, toRedirect: false }
 
     handleVote(e, poolId, userId) {
         e.preventDefault()
         const { dispatch } = this.props
         dispatch(answerPool(poolId, this.state.optionSelected, userId))
+        this.setState({ toRedirect: true })
         return
     }
 
@@ -30,7 +31,11 @@ class QuestionPage extends Component {
         const pool = pools[p.question_id]
 
         if (!pool) {
-            return <Navigate to={{pathname: "/page-not-found"}}/>
+            return <Navigate to={{ pathname: "/page-not-found" }} />
+        }
+
+        if (this.state.toRedirect) {
+            return <Navigate to="/home" />
         }
 
         const poolOwner = users[pool.author]
