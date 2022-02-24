@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap';
 import Layout from '../components/Layout'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
-import { Form, Button, Alert } from 'react-bootstrap';
 import { answerPool } from '../actions/pools'
-
-const maxChars = 255
-const minChars = 10
-const charLimitWarn = 150
 
 
 class QuestionPage extends Component {
@@ -22,7 +18,6 @@ class QuestionPage extends Component {
         this.setState({ toRedirect: true })
         return
     }
-
 
     render() {
 
@@ -96,19 +91,10 @@ class QuestionPage extends Component {
                         </div>
                         <div className='row'>
                             <div className='col'>
-
                             </div>
                         </div>
-
-
-
                     </div>
-
                 </div>
-
-
-
-
                 <br />
             </Layout>
         )

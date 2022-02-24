@@ -1,42 +1,40 @@
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
-import PoolList from '../components/PoolList';
-import { Tab, Tabs } from 'react-bootstrap';
+import PoolList from '../components/PoolList'
+import { Tab, Tabs } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
-
 class Home extends Component {
-    render() {
-        const { pools, authedUser, users } = this.props
+  render () {
+    const { pools, authedUser, users } = this.props
 
-        const answered = Object.keys(users[authedUser].answers)
-        const unanswered = Object.keys(pools).filter(e => !answered.includes(e))
+    const answered = Object.keys(users[authedUser].answers)
+    const unanswered = Object.keys(pools).filter(e => !answered.includes(e))
 
-        return (
-            <Layout>
-                <h1>Would You Rather...</h1>
-                <div className='main-tabs-wrapper'>
-                    <Tabs defaultActiveKey="unanswered" id="main-tabs" className="mb-3 test">
-                        <Tab eventKey="unanswered" title="Unanswered">
-                            <PoolList poolIds={unanswered} pools={pools}/>
-                        </Tab>
-                        <Tab eventKey="answered" title="Answered">
-                            <PoolList poolIds={answered} pools={pools}/>
-                        </Tab>
-                    </Tabs>
-                </div>
-            </Layout>
-        )
-    }
+    return (
+      <Layout>
+        <h1>Would You Rather...</h1>
+        <div className='main-tabs-wrapper'>
+          <Tabs defaultActiveKey='unanswered' id='main-tabs' className='mb-3 test'>
+            <Tab eventKey='unanswered' title='Unanswered'>
+              <PoolList poolIds={unanswered} pools={pools} />
+            </Tab>
+            <Tab eventKey='answered' title='Answered'>
+              <PoolList poolIds={answered} pools={pools} />
+            </Tab>
+          </Tabs>
+        </div>
+      </Layout>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        pools: state.pools,
-        authedUser: state.authedUser,
-        users: state.users
-    }
+  return {
+    pools: state.pools,
+    authedUser: state.authedUser,
+    users: state.users
+  }
 }
 
-
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home)

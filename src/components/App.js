@@ -1,27 +1,25 @@
-import '../App.css';
+import '../App.css'
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import AddNew from '../pages/AddNew';
-import Login from '../pages/Login';
+import AddNew from '../pages/AddNew'
+import Login from '../pages/Login'
 import Leaderboard from '../pages/Leaderboards'
 import Question from '../pages/Question'
-import NotFound from '../pages/PageNotFound';
+import NotFound from '../pages/PageNotFound'
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
 
-
 class App extends Component {
-  componentDidMount() {
+  componentDidMount () {
     const { dispatch, loading } = this.props
     if (loading === true) {
       dispatch(handleInitialData())
     }
   }
 
-
-  render() {
+  render () {
     const { loading, authedUser } = this.props
 
     if (loading === true) {
@@ -47,7 +45,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps ({ authedUser, users }) {
   return {
     loading: users.length === 0,
     authedUser,
@@ -55,11 +53,4 @@ function mapStateToProps({ authedUser, users }) {
   }
 }
 
-
-export default connect(mapStateToProps)(App);
-
-
-
-
-
-
+export default connect(mapStateToProps)(App)

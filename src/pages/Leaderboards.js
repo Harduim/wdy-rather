@@ -6,14 +6,14 @@ const minChars = 10
 const charLimitWarn = 150
 
 class Leaderboard extends Component {
-    render() {
-        return (
-            <Layout>
-                <h1>Leaderboard</h1>
-                <br />
-            </Layout>
-        )
-    }
+  render () {
+    return (
+      <Layout>
+        <h1>Leaderboard</h1>
+        <br />
+      </Layout>
+    )
+  }
 }
 
-export default Leaderboard;
+export default Leaderboard
