@@ -1,22 +1,115 @@
+import React, { Component } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Layout from '../components/Layout'
-
+import { connect } from 'react-redux'
+import Avatar from '../components/Avatar'
+import { Form, Button, Alert } from 'react-bootstrap';
+import { answerPool } from '../actions/pools'
 
 const maxChars = 255
 const minChars = 10
 const charLimitWarn = 150
 
-const Question = () => {
-    const p = useParams()
-    return  (
-        <Layout>
-            <h1>Question</h1>
-            {JSON.stringify(p)}
-            <br />
-        </Layout>
-    )
+
+class QuestionPage extends Component {
+
+    state = { optionSelected: null }
+
+    handleVote(e, poolId, userId) {
+        e.preventDefault()
+        const { dispatch } = this.props
+        dispatch(answerPool(poolId, this.state.optionSelected, userId))
+        return
+    }
+
+
+    render() {
+        const { authedUser, users, pools, p } = this.props
+        const user = users[authedUser]
+        const pool = pools[p.question_id]
+
+        const poolOwner = users[pool.author]
+        const { optionOne, optionTwo } = pool
+        const oVotes = optionOne.votes
+        const tVotes = optionTwo.votes
+        const allVotes = [...oVotes, ...tVotes]
+        const votedOne = oVotes.includes(user.id)
+        const votedTwo = tVotes.includes(user.id)
+        const voted = votedOne || votedTwo
+
+        return (
+            <Layout>
+                <h1>Answer The Question</h1>
+
+                <div className='pool-card' key={pool.id}>
+                    <div className='pool-header'>
+                        <div><b>{poolOwner.name} Asks:</b></div>
+                    </div>
+                    <div className='pool-body'>
+
+                        <div className='row'>
+                            <div className='col-3 pool-avatar'><Avatar user={poolOwner} /></div>
+                            <div className='col-9'>
+                                <div><b>Would You Rather</b></div>
+                                <div>
+
+                                    <Form onSubmit={e => this.handleVote(e, pool.id, user.id)}>
+                                        <div key={`default-radio`} className="mb-3">
+                                            <Form.Check
+                                                disabled={voted}
+                                                type="radio"
+                                                id='optOne'
+                                                label={`${optionOne.text} [Votes: ${oVotes.length} | ${Math.round(oVotes.length / allVotes.length * 100)}%]`}
+                                                name='group1'
+                                                onChange={_ => this.setState({ optionSelected: 'optionOne' })}
+                                                className={votedOne ? "alert-info" : ""}
+                                            />
+                                            <Form.Check
+                                                disabled={voted}
+                                                type="radio"
+                                                label={`${optionTwo.text} [Votes: ${tVotes.length} | ${Math.round(tVotes.length / allVotes.length * 100)}%]`}
+                                                id='optTwo'
+                                                name='group1'
+                                                onChange={_ => this.setState({ optionSelected: 'optionTwo' })}
+                                                className={votedTwo ? "alert-info" : ""}
+                                            />
+                                        </div>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <Button disabled={voted} className={'nav-pills'} type="submit">Vote</Button>
+                                        </div>
+                                    </Form>
+
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col'>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                <br />
+            </Layout>
+        )
+
+    }
+
 }
 
 
+const mapStateToProps = state => {
+    return { authedUser: state.authedUser, users: state.users, pools: state.pools }
+}
+const Question = connect(mapStateToProps)(QuestionPage)
 
-export default Question;
+export default () => <Question p={useParams()}></Question>;
