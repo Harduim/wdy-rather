@@ -66,6 +66,7 @@ class QuestionPage extends Component {
                                     <Form onSubmit={e => this.handleVote(e, pool.id, user.id)}>
                                         <div key={`default-radio`} className="mb-3">
                                             <Form.Check
+                                                defaultChecked
                                                 disabled={voted}
                                                 type="radio"
                                                 id='optOne'
