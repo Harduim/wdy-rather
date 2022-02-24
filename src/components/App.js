@@ -6,6 +6,7 @@ import AddNew from '../pages/AddNew';
 import Login from '../pages/Login';
 import Leaderboard from '../pages/Leaderboards'
 import Question from '../pages/Question'
+import NotFound from '../pages/PageNotFound';
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
@@ -34,6 +35,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Routes>
+          <Route path='/:i' element={<NotFound />} />
           <Route exact path='/' element={<Home />} />
           <Route exact path='/home' element={<Home />} />
           <Route exact path='/add' element={<AddNew />} />

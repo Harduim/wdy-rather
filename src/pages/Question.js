@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import Layout from '../components/Layout'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
@@ -24,9 +24,14 @@ class QuestionPage extends Component {
 
 
     render() {
+
         const { authedUser, users, pools, p } = this.props
         const user = users[authedUser]
         const pool = pools[p.question_id]
+
+        if (!pool) {
+            return <Navigate to={{pathname: "/page-not-found"}}/>
+        }
 
         const poolOwner = users[pool.author]
         const { optionOne, optionTwo } = pool
