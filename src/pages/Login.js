@@ -7,6 +7,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
     handleSubmit(e) {
+        e.preventDefault()
         const { dispatch } = this.props
         const uid = e.target[0].value
         dispatch(setAuthedUser(uid))
