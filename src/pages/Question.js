@@ -9,7 +9,7 @@ import { answerPool } from '../actions/pools'
 
 class QuestionPage extends Component {
 
-    state = { optionSelected: null, toRedirect: false }
+    state = { optionSelected: 'optionOne', toRedirect: false }
 
     handleVote(e, poolId, userId) {
         e.preventDefault()
