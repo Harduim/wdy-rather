@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
@@ -15,7 +15,6 @@ class QuestionPage extends Component {
         e.preventDefault()
         const { dispatch } = this.props
         dispatch(answerPool(poolId, this.state.optionSelected, userId))
-        this.setState({ toRedirect: true })
         return
     }
 
@@ -61,22 +60,22 @@ class QuestionPage extends Component {
                                                 disabled={voted}
                                                 type="radio"
                                                 id='optOne'
-                                                label={`${optionOne.text} [Votes: ${oVotes.length} | ${Math.round(oVotes.length / allVotes.length * 100)}%]`}
+                                                label={`${optionOne.text}`}
                                                 name='group1'
                                                 onChange={_ => this.setState({ optionSelected: 'optionOne' })}
                                                 className={votedOne ? "alert-info" : ""}
                                             />
-                                            <Form.Label>Email address</Form.Label>
+                                            {voted ? <Form.Label>{`Votes: ${oVotes.length} | ${Math.round(oVotes.length / allVotes.length * 100)}%`}</Form.Label> : null}
                                             <Form.Check
                                                 disabled={voted}
                                                 type="radio"
-                                                label={`${optionTwo.text} [Votes: ${tVotes.length} | ${Math.round(tVotes.length / allVotes.length * 100)}%]`}
+                                                label={`${optionTwo.text}`}
                                                 id='optTwo'
                                                 name='group1'
                                                 onChange={_ => this.setState({ optionSelected: 'optionTwo' })}
                                                 className={votedTwo ? "alert-info" : ""}
                                             />
-                                            <Form.Label>Email address</Form.Label>
+                                            {voted ? <Form.Label>{`Votes: ${tVotes.length} | ${Math.round(tVotes.length / allVotes.length * 100)}%`}</Form.Label> : null}
                                         </div>
                                         <div style={{ textAlign: 'center' }}>
                                             <Button disabled={voted} className={'nav-pills'} type="submit">Vote</Button>
