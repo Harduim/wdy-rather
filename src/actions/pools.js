@@ -17,7 +17,18 @@ function addPool(pool) {
   }
 }
 
-export function answerPool(poolId, option, userId) {
+
+
+export function handleAnswerPool(poolId, option, userId) {
+  const answer = { authedUser: userId, qid: poolId, answer: option }
+  return (dispatch) => {
+    _saveQuestionAnswer(answer).then(() => dispatch(answerPool(poolId, option, userId)))
+  }
+}
+
+
+
+function answerPool(poolId, option, userId) {
   _saveQuestionAnswer({ authedUser: userId, qid: poolId, answer: option })
   return {
     type: ANSWER_POOL,

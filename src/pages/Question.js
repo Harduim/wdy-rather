@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
-import { answerPool } from '../actions/pools'
+import { handleAnswerPool } from '../actions/pools'
 
 
 class QuestionPage extends Component {
@@ -14,7 +14,7 @@ class QuestionPage extends Component {
     handleVote(e, poolId, userId) {
         e.preventDefault()
         const { dispatch } = this.props
-        dispatch(answerPool(poolId, this.state.optionSelected, userId))
+        dispatch(handleAnswerPool(poolId, this.state.optionSelected, userId))
         return
     }
 
