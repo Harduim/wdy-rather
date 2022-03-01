@@ -9,7 +9,7 @@ import { answerPool } from '../actions/pools'
 
 class QuestionPage extends Component {
 
-    state = { optionSelected: 'optionOne', toRedirect: false }
+    state = { optionSelected: 'optionOne' }
 
     handleVote(e, poolId, userId) {
         e.preventDefault()
@@ -27,10 +27,6 @@ class QuestionPage extends Component {
 
         if (!pool) {
             return <Navigate to={{ pathname: "/page-not-found" }} />
-        }
-
-        if (this.state.toRedirect) {
-            return <Navigate to="/home" />
         }
 
         const poolOwner = users[pool.author]
@@ -70,6 +66,7 @@ class QuestionPage extends Component {
                                                 onChange={_ => this.setState({ optionSelected: 'optionOne' })}
                                                 className={votedOne ? "alert-info" : ""}
                                             />
+                                            <Form.Label>Email address</Form.Label>
                                             <Form.Check
                                                 disabled={voted}
                                                 type="radio"
@@ -79,6 +76,7 @@ class QuestionPage extends Component {
                                                 onChange={_ => this.setState({ optionSelected: 'optionTwo' })}
                                                 className={votedTwo ? "alert-info" : ""}
                                             />
+                                            <Form.Label>Email address</Form.Label>
                                         </div>
                                         <div style={{ textAlign: 'center' }}>
                                             <Button disabled={voted} className={'nav-pills'} type="submit">Vote</Button>
