@@ -6,9 +6,9 @@ import { handleAddPool } from '../actions/pools'
 import { Navigate } from 'react-router-dom'
 
 
-const maxChars = 255
-const minChars = 10
-const charLimitWarn = 150
+const MAX_CHARS = 255
+const MIN_CHARS = 20
+const CHAR_LIMIT_WARN = 150
 
 class AddNew extends Component {
     textAreaRef = createRef()
@@ -17,6 +17,7 @@ class AddNew extends Component {
     handleSumit(e) {
         e.preventDefault()
         const { dispatch, authedUser } = this.props
+
         dispatch(handleAddPool(e.target.firstAnswer.value, e.target.secondAnswer.value, authedUser))
         this.setState({ toRedirect: true })
     }
@@ -40,12 +41,13 @@ class AddNew extends Component {
                             as="textarea"
                             placeholder="Type the first answer"
                             rows={2}
-                            maxLength={maxChars}
+                            minLength={MIN_CHARS}
+                            maxLength={MAX_CHARS}
                             onChange={(e) => this.setState({ answer1Count: e.target.value.length })}
                         />
                         <Form.Text className="text-muted">
-                            <b style={{ color: maxChars - answer1Count < charLimitWarn ? "red" : "" }}>
-                                {maxChars - answer1Count}
+                            <b style={{ color: MAX_CHARS - answer1Count < CHAR_LIMIT_WARN ? "red" : "" }}>
+                                {MAX_CHARS - answer1Count}
                             </b> charecters remaining.
                         </Form.Text>
                     </Form.Group>
@@ -55,12 +57,12 @@ class AddNew extends Component {
                             as="textarea"
                             placeholder="Type the second answer"
                             rows={2}
-                            maxLength={maxChars}
+                            maxLength={MAX_CHARS}
                             onChange={(e) => this.setState({ answer2Count: e.target.value.length })}
                         />
                         <Form.Text className="text-muted">
-                            <b style={{ color: maxChars - answer2Count < charLimitWarn ? "red" : "" }}>
-                                {maxChars - answer2Count}
+                            <b style={{ color: MAX_CHARS - answer2Count < CHAR_LIMIT_WARN ? "red" : "" }}>
+                                {MAX_CHARS - answer2Count}
                             </b> charecters remaining.
                         </Form.Text>
                     </Form.Group>
