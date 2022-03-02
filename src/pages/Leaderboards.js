@@ -4,16 +4,15 @@ import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
 import { Table } from 'react-bootstrap'
 
-
 class Leaderboard extends Component {
-  render() {
+  render () {
     const { authedUser, pools, users } = this.props
 
     const _users = { ...users }
     let userIds = Object.keys(users)
 
     userIds.forEach(
-      e => _users[e]['points'] = Object.keys(_users[e].answers).length + _users[e].questions.length
+      e => _users[e].points = Object.keys(_users[e].answers).length + _users[e].questions.length
     )
 
     userIds = Object.keys(users).sort((a, b) => users[b].points - users[a].points)
@@ -54,8 +53,6 @@ class Leaderboard extends Component {
     )
   }
 }
-
-
 
 const mapStateToProps = state => {
   return {

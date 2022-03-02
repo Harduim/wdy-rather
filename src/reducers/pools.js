@@ -1,9 +1,7 @@
 import { ADD_POOL, ANSWER_POOL } from '../actions/pools'
 import { RECEIVE_DATA } from '../actions/shared'
 
-
-
-export default function pools(state = {}, action) {
+export default function pools (state = {}, action) {
   const newState = { ...state }
   let newPool
   switch (action.type) {
