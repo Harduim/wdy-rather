@@ -18,3 +18,9 @@ npm install
 ```shell
 npm run
 ```
+
+## Screenshots
+
+![Demo Screenshot 1](public/ss_demo01.png)
+
+![Demo Screenshot 2](public/ss_demo02.png)
