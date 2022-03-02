@@ -87,3 +87,12 @@ h1 {
   padding: 1rem;
   border-radius: 8px 8px 0 0;
 }
+
+.leaderboard-table .avatar {
+  max-width: 2rem;
+}
+
+.leaderboard-table {
+  text-align: center;
+  vertical-align: middle;
+}
