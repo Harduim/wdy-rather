@@ -1,7 +1,6 @@
 {
   "name": "wdy-rather",
   "version": "0.1.0",
-  "homepage": "https://github.com/Harduim/wdy-rather",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.1.3",
