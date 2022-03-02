@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import Avatar from './Avatar'
-import { NavLink } from 'react-router-dom'
+
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
+import Avatar from './Avatar'
 
 class Pool extends Component {
   render () {

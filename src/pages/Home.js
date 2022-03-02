@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
-import PoolList from '../components/PoolList'
+
 import { Tab, Tabs } from 'react-bootstrap'
 import { connect } from 'react-redux'
+
+import Layout from '../components/Layout'
+import PoolList from '../components/PoolList'
 
 class Home extends Component {
   render () {

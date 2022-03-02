@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
-import { connect } from 'react-redux'
-import Avatar from '../components/Avatar'
+
 import { Table } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import Avatar from '../components/Avatar'
+import Layout from '../components/Layout'
 
 class Leaderboard extends Component {
   render () {

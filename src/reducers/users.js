@@ -1,5 +1,5 @@
-import { RECEIVE_DATA } from '../actions/shared'
 import { ANSWER_POOL } from '../actions/pools'
+import { RECEIVE_DATA } from '../actions/shared'
 
 export default function users (state = [], action) {
   switch (action.type) {

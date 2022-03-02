@@ -1,35 +1,36 @@
 import React, { Component, createRef } from 'react'
-import Layout from '../components/Layout'
+
 import { Form, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { handleAddPool } from '../actions/pools'
 import { Navigate } from 'react-router-dom'
 
+import { handleAddPool } from '../actions/pools'
+import Layout from '../components/Layout'
 
 const MAX_CHARS = 255
 const MIN_CHARS = 20
 const CHAR_LIMIT_WARN = 150
 
 class AddNew extends Component {
-    textAreaRef = createRef()
-    state = { answer1Count: 0, answer2Count: 0, toRedirect: false }
+  textAreaRef = createRef()
+  state = { answer1Count: 0, answer2Count: 0, toRedirect: false }
 
-    handleSumit(e) {
-        e.preventDefault()
-        const { dispatch, authedUser } = this.props
+  handleSumit (e) {
+    e.preventDefault()
+    const { dispatch, authedUser } = this.props
 
-        dispatch(handleAddPool(e.target.firstAnswer.value, e.target.secondAnswer.value, authedUser))
-        this.setState({ toRedirect: true })
+    dispatch(handleAddPool(e.target.firstAnswer.value, e.target.secondAnswer.value, authedUser))
+    this.setState({ toRedirect: true })
+  }
+
+  render () {
+    const { answer1Count, answer2Count, toRedirect } = this.state
+
+    if (toRedirect) {
+      return <Navigate to="/home" />
     }
 
-    render() {
-        const { answer1Count, answer2Count, toRedirect } = this.state
-
-        if (toRedirect) {
-            return <Navigate to="/home" />
-        }
-
-        return (
+    return (
             <Layout>
                 <h1>Create a new question</h1>
                 <br />
@@ -46,7 +47,7 @@ class AddNew extends Component {
                             onChange={(e) => this.setState({ answer1Count: e.target.value.length })}
                         />
                         <Form.Text className="text-muted">
-                            <b style={{ color: MAX_CHARS - answer1Count < CHAR_LIMIT_WARN ? "red" : "" }}>
+                            <b style={{ color: MAX_CHARS - answer1Count < CHAR_LIMIT_WARN ? 'red' : '' }}>
                                 {MAX_CHARS - answer1Count}
                             </b> charecters remaining.
                         </Form.Text>
@@ -61,7 +62,7 @@ class AddNew extends Component {
                             onChange={(e) => this.setState({ answer2Count: e.target.value.length })}
                         />
                         <Form.Text className="text-muted">
-                            <b style={{ color: MAX_CHARS - answer2Count < CHAR_LIMIT_WARN ? "red" : "" }}>
+                            <b style={{ color: MAX_CHARS - answer2Count < CHAR_LIMIT_WARN ? 'red' : '' }}>
                                 {MAX_CHARS - answer2Count}
                             </b> charecters remaining.
                         </Form.Text>
@@ -71,15 +72,12 @@ class AddNew extends Component {
                     </Button>
                 </Form>
             </Layout>
-        )
-    }
+    )
+  }
 }
-
 
 const mapStateToProps = state => {
-    return { authedUser: state.authedUser }
+  return { authedUser: state.authedUser }
 }
 
-
-
-export default connect(mapStateToProps)(AddNew);
+export default connect(mapStateToProps)(AddNew)

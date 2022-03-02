@@ -1,5 +1,6 @@
-import { _getQuestions, _getUsers } from '../_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
+
+import { _getQuestions, _getUsers } from '../_DATA'
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 const AUTHEDUSER = sessionStorage.getItem('uid')

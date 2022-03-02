@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+
 import { Container, Row, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
 import Avatar from './Avatar'
 import SiteNav from './SiteNav'
-import { connect } from 'react-redux'
 
 class Sidebar extends Component {
   render () {

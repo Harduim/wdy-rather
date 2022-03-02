@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+
 import { Nav, Button } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
-import { unsetAuthedUser } from '../actions/authedUser'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
+import { unsetAuthedUser } from '../actions/authedUser'
 
 class SiteNav extends Component {
   render () {

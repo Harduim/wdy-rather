@@ -1,15 +1,17 @@
 import '../App.css'
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import AddNew from '../pages/AddNew'
-import Login from '../pages/Login'
-import Leaderboard from '../pages/Leaderboards'
-import Question from '../pages/Question'
-import NotFound from '../pages/PageNotFound'
-import { handleInitialData } from '../actions/shared'
+import React, { Component } from 'react'
+
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import { handleInitialData } from '../actions/shared'
+import AddNew from '../pages/AddNew'
+import Home from '../pages/Home'
+import Leaderboard from '../pages/Leaderboards'
+import Login from '../pages/Login'
+import NotFound from '../pages/PageNotFound'
+import Question from '../pages/Question'
 
 class App extends Component {
   componentDidMount () {

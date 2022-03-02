@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+
 import avatar_icon_blue from '../assets/avatar_icon_blue.png'
-import avatar_icon_red from '../assets/avatar_icon_red.png'
 import avatar_icon_green from '../assets/avatar_icon_green.png'
+import avatar_icon_red from '../assets/avatar_icon_red.png'
 
 const avatars = {
   avatar_icon_blue,

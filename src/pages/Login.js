@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
+
 import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
