@@ -8,11 +8,15 @@ import { Table } from 'react-bootstrap'
 class Leaderboard extends Component {
   render() {
     const { authedUser, pools, users } = this.props
-    const userIds = Object.keys(users).sort((a, b) => users[b].points - users[a].points)
+
+    const _users = { ...users }
+    let userIds = Object.keys(users)
 
     userIds.forEach(
-      e => users[e]['points'] = Object.keys(users[e].answers).length + users[e].questions.length
+      e => _users[e]['points'] = Object.keys(_users[e].answers).length + _users[e].questions.length
     )
+
+    userIds = Object.keys(users).sort((a, b) => users[b].points - users[a].points)
 
     return (
       <Layout>
@@ -36,8 +40,8 @@ class Leaderboard extends Component {
                       <td>
                         <Avatar user={u} />
                       </td>
-                      <td>{u.points}</td>
-                      <td>{u.points}</td>
+                      <td>{u.questions.length}</td>
+                      <td>{Object.keys(u.answers).length}</td>
                       <td>{u.points}</td>
                     </tr>
                   )
